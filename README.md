@@ -23,7 +23,7 @@ dependencies {
 ```
 # Usage
 
-When we want to make Fragment interactive we often cast the host into the interface in `onAttach` like below.
+When we want to make Fragment interactive we often cast the host into types in `onAttach` like below.
 ```java
 public interface FragmentInteractionListener {
     void onClickButton(MyFragment fragment);    
