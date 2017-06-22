@@ -119,6 +119,6 @@ public class MainActivity extends AppCompatActivity implements MyFragment.Fragme
 }
 ```
 
-One thing to note is that the library checks the host in following order:
+One thing to note is that when casting types the library checks the host in following order:
 
 `getTargetFragment()` > `getParentFragment()` > `getContext()`
