@@ -50,27 +50,21 @@ public class MyFragment extends Fragment {
     @Callback
     interface FragmentCallback {
         void onClickButton(MyFragment fragment);
-    }
-    
+    }    
     private FragmentCallback mCallback;
     
-    @Callback
-    interface FragmentCallback {
+    @Callback(mandatory = false)
+    interface FragmentCallbackNotForce {
         void onClickButton(MyFragment fragment);
     }
-
-    private FragmentCallback mCallback;
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+    private FragmentCallbackNotForce mCallbackNotForce;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View vw = inflater.inflate(R.layout.fragm_my, container, false);
-        vw.findViewById(R.id.bt).setOnClickListener(this);
+        vw.findViewById(R.id.bt1).setOnClickListener(this);
+        vw.findViewById(R.id.bt2).setOnClickListener(this);
         return vw;
     }
 
@@ -83,14 +77,17 @@ public class MyFragment extends Fragment {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.bt:
+            case R.id.bt1
                 mCallback.onClickButton(this);
+                break;
+            case R.id.bt2
+                // Because we give mandatory = false so this might be null if not implemented by the host.
+                if (mCallbackNotForce != null)
+                    mCallbackNotForce.onClickButton(this);
                 break;
         }
     }
 
 }
-
-
 ```
 
