@@ -21,27 +21,27 @@ dependencies {
     annotationProcessor 'com.github.zeroarst.callbackfragment:compiler:0.2.1'
 }
 ```
+# Usage
 
 When we want to make Fragment interactive we often cast the host into the interface in `onAttach` like below.
 ```java
-public interface FragmentActionListener {
-    void onClickButton(ProductReceiptFragment fragment);    
+public interface FragmentInteractionListener {
+    void onClickButton(MyFragment fragment);    
 }
 
-FragmentActionListener mListener;
+FragmentInteractionListener mListener;
 
 @Override
 public void onAttach(Context context) {
     super.onAttach(context);
     try {
-      mListener = (FragmentActionListener) context;
+      mListener = (FragmentInteractionListener) context;
     } catch (ClassCastException e) {
-        throw new ClassCastException(context.toString() + " must implement FragmentActionListener");
+        throw new ClassCastException(context.toString() + " must implement FragmentInteractionListener");
     }
 }
 
 ```
-
 
 With this library all you need to do is to give annotations:
 ```java
