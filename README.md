@@ -120,4 +120,5 @@ public class MainActivity extends AppCompatActivity implements MyFragment.Fragme
 ```
 
 One thing to note is that the library checks the host in following order:
-getTargetFragment() > getParentFragment() > getContext()
+
+`getTargetFragment()` > `getParentFragment()` > `getContext()`
