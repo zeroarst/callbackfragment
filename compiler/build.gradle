@@ -1,6 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'com.github.dcendents.android-maven' // ADD THIS
 
+group='com.github.zeroarst'
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
