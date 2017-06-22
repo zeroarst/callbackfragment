@@ -43,7 +43,7 @@ public void onAttach(Context context) {
 
 ```
 
-With this library all you need to do is to give annotations:
+With this library all you need to do is to give annotations. It does all the cast for you.
 ```java
 @CallbackFragment
 public class MyFragment extends Fragment {
@@ -118,3 +118,6 @@ public class MainActivity extends AppCompatActivity implements MyFragment.Fragme
     }
 }
 ```
+
+One thing to note is that the library checks the host in following order:
+getTargetFragment() > getParentFragment() > getContext()
