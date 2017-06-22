@@ -1,5 +1,5 @@
 # CallbackFragment
-Add annotation to make your fragment callbackable without writing boilerplate.
+Add annotation to cast your host into you defined types without writing boilerplate.
 
 [![](https://jitpack.io/v/zeroarst/callbackfragment.svg)](https://jitpack.io/#zeroarst/callbackfragment)
 
