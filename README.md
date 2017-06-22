@@ -105,13 +105,6 @@ public class MainActivity extends AppCompatActivity implements MyFragment.Fragme
         getSupportFragmentManager().beginTransaction()
             .add(R.id.lo_fragm_container, MyFragmentCallbackable.create(), "MY_FRAGM")
             .commit();
-
-        findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MyDialogFragmentCallbackable.create().show(getSupportFragmentManager(), "MY_DIALOG_FRAGM");
-            }
-        });
     }
 
     Toast mToast;
