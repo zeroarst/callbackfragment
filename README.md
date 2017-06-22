@@ -92,7 +92,7 @@ public class MyFragment extends Fragment {
 }
 ```
 
-In your host class, such as Activity, another fragment, just do as usual.
+The library generates a subclass of the annotated `Fragment` with this format: `YourFragmentCallbackable`. In your host class, such as Activity, or another Fragment, create a instance and add to `FragmentManager`. It also comes with a static `.create()` method that you can just use.
 
 ```java
 public class MainActivity extends AppCompatActivity implements MyFragment.FragmentCallback {
