@@ -29,8 +29,6 @@ import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.DeclaredType;
 import javax.tools.Diagnostic;
 
-import static com.sun.org.apache.xerces.internal.xs.XSConstants.ANNOTATION;
-
 @SupportedAnnotationTypes("com.zeroarst.library.CallbackFragment")
 @SupportedSourceVersion(SourceVersion.RELEASE_7)
 public final class CallbackFragmentProcessor extends AbstractProcessor {
@@ -75,7 +73,7 @@ public final class CallbackFragmentProcessor extends AbstractProcessor {
                     mHelperClassGenerated = true;
                 }
                 generateFragmentCode(annotatedClass);
-            } catch (UnnamedPackageException | IOException e) {
+            } catch (IOException e) {
                 mMgr.printMessage(
                     Diagnostic.Kind.ERROR,
                     String.format("Couldn't generate class for %s: %s", annotatedClass, e.getMessage()),
@@ -107,7 +105,7 @@ public final class CallbackFragmentProcessor extends AbstractProcessor {
         if (!isSubClass(annotatedClass, FRAGMENT_CLASS_NAME)) {
             mMgr.printMessage(
                 Diagnostic.Kind.ERROR,
-                String.format("Classes annotated with %s must extend %s", ANNOTATION, FRAGMENT_CLASS_NAME),
+                String.format("Classes annotated with %s must extend %s", CallbackFragment.class.getSimpleName(), FRAGMENT_CLASS_NAME),
                 annotatedClass
             );
             return false;
@@ -116,7 +114,7 @@ public final class CallbackFragmentProcessor extends AbstractProcessor {
         if (!classValidator.isPublic()) {
             mMgr.printMessage(
                 Diagnostic.Kind.ERROR,
-                String.format("Classes annotated with %s must be public", ANNOTATION),
+                String.format("Classes annotated with %s must be public", CallbackFragment.class.getSimpleName()),
                 annotatedClass
             );
             return false;
@@ -125,7 +123,7 @@ public final class CallbackFragmentProcessor extends AbstractProcessor {
         if (classValidator.isAbstract()) {
             mMgr.printMessage(
                 Diagnostic.Kind.ERROR,
-                String.format("Classes annotated with %s must not be abstract.", ANNOTATION),
+                String.format("Classes annotated with %s must not be abstract.", CallbackFragment.class.getSimpleName()),
                 annotatedClass
             );
             return false;
@@ -134,7 +132,7 @@ public final class CallbackFragmentProcessor extends AbstractProcessor {
         return true;
     }
 
-    private void generateFragmentCode(TypeElement annotatedClass) throws UnnamedPackageException, IOException {
+    private void generateFragmentCode(TypeElement annotatedClass) throws IOException {
 
         final PackageElement pkg = processingEnv.getElementUtils().getPackageOf(annotatedClass);
 
