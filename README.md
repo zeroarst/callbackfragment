@@ -17,7 +17,8 @@ allprojects {
 Step 2. Add the dependency
 ```gradle
 dependencies {
-    compile 'com.github.zeroarst:callbackfragment:0.2.1'
+    provided 'com.github.zeroarst.callbackfragment:library:0.2.1'
+    annotationProcessor 'com.github.zeroarst.callbackfragment:compiler:0.2.1'
 }
 ```
 
