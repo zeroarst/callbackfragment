@@ -91,3 +91,36 @@ public class MyFragment extends Fragment {
 }
 ```
 
+In your host class, such as Activity, another fragment, just do as usual.
+
+```java
+public class MainActivity extends AppCompatActivity implements MyFragment.FragmentCallback {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        getSupportFragmentManager().beginTransaction()
+            .add(R.id.lo_fragm_container, MyFragmentCallbackable.create(), "MY_FRAGM")
+            .commit();
+
+        findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyDialogFragmentCallbackable.create().show(getSupportFragmentManager(), "MY_DIALOG_FRAGM");
+            }
+        });
+    }
+
+    Toast mToast;
+
+    @Override
+    public void onClickButton(MyFragment fragment) {
+        if (mToast != null)
+            mToast.cancel();
+        mToast = Toast.makeText(this, "Callback from " + fragment.getTag(), Toast.LENGTH_SHORT);
+        mToast.show();
+    }
+}
+```
