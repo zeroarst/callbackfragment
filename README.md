@@ -43,7 +43,7 @@ public void onAttach(Context context) {
 
 ```
 
-With this library all you need to do is to give annotations. It does all the cast for you.
+With this library all you need to do is to give annotations. It does all the cast for you. Add `@CallbackFragment` to your Fragment and add `@Callback` to your type.
 ```java
 @CallbackFragment
 public class MyFragment extends Fragment {
