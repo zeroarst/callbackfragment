@@ -70,12 +70,6 @@ public class MyFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-
-    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt1
