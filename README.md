@@ -1,5 +1,5 @@
 # CallbackFragment
-Add annotation to make your fragment callbackable without writing boilerplate code.
+Add annotation to make your fragment callbackable without writing boilerplate.
 
 [![](https://jitpack.io/v/zeroarst/callbackfragment.svg)](https://jitpack.io/#zeroarst/callbackfragment)
 
