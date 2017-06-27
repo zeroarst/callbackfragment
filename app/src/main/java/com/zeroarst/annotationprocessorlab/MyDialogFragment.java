@@ -17,7 +17,7 @@ public class MyDialogFragment extends DialogFragment {
 
     @Callback
     interface DialogListener {
-        void onDismissed(MyDialogFragment fragment);
+        void onTextClicked(MyDialogFragment fragment);
     }
 
     private DialogListener mListener;
@@ -31,6 +31,13 @@ public class MyDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View vw = inflater.inflate(R.layout.fragm_my_dialog, container, false);
+        vw.findViewById(R.id.tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+                mListener.onTextClicked(MyDialogFragment.this);
+            }
+        });
         return vw;
     }
 
@@ -42,6 +49,5 @@ public class MyDialogFragment extends DialogFragment {
     @Override
     public void onDismiss(DialogInterface dialog) {
         super.onDismiss(dialog);
-        mListener.onDismissed(this);
     }
 }
