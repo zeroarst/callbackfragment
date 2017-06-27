@@ -3,22 +3,11 @@ Add annotation to cast your fragment host into you defined types without writing
 
 [![](https://jitpack.io/v/zeroarst/callbackfragment.svg)](https://jitpack.io/#zeroarst/callbackfragment)
 
-Step 1. Add it in your root build.gradle at the end of repositories:
-
-```gradle
-allprojects {
-    repositories {
-    ...
-    maven { url 'https://jitpack.io' }
-    }
-}
-```
-
-Step 2. Add the dependency
+Add the dependency
 ```gradle
 dependencies {
-    provided 'com.github.zeroarst.callbackfragment:library:0.2.1'
-    annotationProcessor 'com.github.zeroarst.callbackfragment:compiler:0.2.1'
+    provided 'com.github.zeroarst.callbackfragment:library:0.3'
+    annotationProcessor 'com.github.zeroarst.callbackfragment:compiler:0.3'
 }
 ```
 # Usage
