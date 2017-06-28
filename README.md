@@ -6,10 +6,10 @@ Add annotation to cast your fragment host into you defined types without writing
 Step1. Add it in your root build.gradle at the end of repositories:
 ```gradle
 allprojects {
-	repositories {
-		...
-		maven { url 'https://jitpack.io' }
-	}
+    repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+    }
 }
 ```
 
